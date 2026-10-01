@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clsurjp2d2ipr"
+path="res://.godot/imported/background theme.mp3-2bf568722e57a66b5892296ef6a38578.mp3str"
+
+[deps]
+
+source_file="res://sfx/background theme.mp3"
+dest_files=["res://.godot/imported/background theme.mp3-2bf568722e57a66b5892296ef6a38578.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

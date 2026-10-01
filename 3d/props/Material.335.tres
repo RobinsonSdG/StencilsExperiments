@@ -2,5 +2,10 @@
 
 [resource]
 resource_name = "Material.335"
+render_priority = 3
+transparency = 1
 albedo_color = Color(0.292857, 0.264374, 0.248875, 1)
 metallic = 0.5
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2

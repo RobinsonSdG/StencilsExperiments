@@ -2,8 +2,9 @@
 
 [resource]
 resource_name = "Material.392"
-render_priority = 2
+render_priority = 6
 transparency = 1
+depth_draw_mode = 1
 albedo_color = Color(0.110644, 0.257143, 0.098085, 1)
 metallic = 0.5
 stencil_mode = 3

@@ -30,3 +30,13 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1390771659]
+
+[node name="FootstepTimer" type="Timer" parent="." unique_id=1904956608]
+unique_name_in_owner = true
+wait_time = 0.4
+one_shot = true
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1375973073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27408552, 0)
+
+[connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]

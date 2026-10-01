@@ -2,7 +2,7 @@
 
 [resource]
 resource_name = "Material.317"
-render_priority = 2
+render_priority = 4
 transparency = 1
 albedo_color = Color(0.135633, 0.0865, 0.05448, 1)
 metallic = 0.5

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stylized Lamp
+* source:	https://sketchfab.com/3d-models/stylized-lamp-fd4b548a0770466da4328e9649d967d9
+* author:	nabonilo (https://sketchfab.com/nabonilo)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stylized Lamp" (https://sketchfab.com/3d-models/stylized-lamp-fd4b548a0770466da4328e9649d967d9) by nabonilo (https://sketchfab.com/nabonilo) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

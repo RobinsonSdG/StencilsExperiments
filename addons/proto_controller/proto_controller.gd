@@ -16,6 +16,9 @@ extends CharacterBody3D
 ## Can we press to enter freefly mode (noclip)?
 @export var can_freefly : bool = false
 
+
+@export var footstep_audio: AudioStreamPlayer3D
+
 @export_group("Speeds")
 ## Look around rotation speed.
 @export var look_speed : float = 0.002
@@ -30,13 +33,13 @@ extends CharacterBody3D
 
 @export_group("Input Actions")
 ## Name of Input Action to move Left.
-@export var input_left : String = "ui_left"
+@export var input_left : String = "left"
 ## Name of Input Action to move Right.
-@export var input_right : String = "ui_right"
+@export var input_right : String = "right"
 ## Name of Input Action to move Forward.
-@export var input_forward : String = "ui_up"
+@export var input_forward : String = "up"
 ## Name of Input Action to move Backward.
-@export var input_back : String = "ui_down"
+@export var input_back : String = "down"
 ## Name of Input Action to Jump.
 @export var input_jump : String = "ui_accept"
 ## Name of Input Action to Sprint.
@@ -44,14 +47,21 @@ extends CharacterBody3D
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
+
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
 
+var camera_movement: Vector2 = Vector2.ZERO
+
+var footstep_can_play: bool = true
+
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var footstep_timer: Timer = %FootstepTimer
+@onready var ray_cast_3d: RayCast3D = $RayCast3D
 
 func _ready() -> void:
 	check_input_mappings()
@@ -67,7 +77,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Look around
 	if mouse_captured and event is InputEventMouseMotion:
-		rotate_look(event.relative)
+		camera_movement += event.relative
 	
 	# Toggle freefly mode
 	if can_freefly and Input.is_action_just_pressed(input_freefly):
@@ -77,6 +87,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			disable_freefly()
 
 func _physics_process(delta: float) -> void:
+	if camera_movement != Vector2.ZERO:
+		rotate_look(camera_movement)
+		camera_movement = Vector2.ZERO
+	
 	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
@@ -117,7 +131,11 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
-
+	
+	if footstep_can_play and (velocity.x != 0 or velocity.y != 0) and is_on_floor():
+		footstep_audio.play();
+		footstep_can_play = false;
+		footstep_timer.start();
 
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
@@ -176,3 +194,7 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+
+
+func _on_footstep_timer_timeout() -> void:
+	footstep_can_play = true

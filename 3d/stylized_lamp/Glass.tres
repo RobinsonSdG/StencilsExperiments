@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cybwn4nekvkb0"]
+
+[ext_resource type="Texture2D" uid="uid://d16620lw0r1uf" path="res://3d/stylized_lamp/textures/Glass_baseColor.png" id="1_cx4cs"]
+[ext_resource type="Texture2D" uid="uid://c6p8snsryc4ci" path="res://3d/stylized_lamp/textures/Glass_emissive.png" id="2_f5ukt"]
+
+[resource]
+resource_name = "Glass"
+render_priority = 5
+transparency = 1
+depth_draw_mode = 1
+albedo_texture = ExtResource("1_cx4cs")
+roughness = 0.7333325
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.0819081
+emission_operator = 1
+emission_texture = ExtResource("2_f5ukt")
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+metadata/_gltf_primary_texture_coord = 0
