@@ -1,0 +1,265 @@
+[gd_scene format=3 uid="uid://b0wa3vny8pivj"]
+
+[ext_resource type="Script" uid="uid://cl1xn56iuma7n" path="res://stencil_scene.gd" id="1_4x4p7"]
+[ext_resource type="Texture2D" uid="uid://beopqodo45dyp" path="res://2d/Panorama_Sky_07-512x512.png" id="2_wv68y"]
+[ext_resource type="Texture2D" uid="uid://cbqx66dhkkj10" path="res://2d/interior_floor/wood_planks_02_color_2k.png" id="3_m5lx4"]
+[ext_resource type="Texture2D" uid="uid://jifwo8lbnjjd" path="res://2d/interior_floor/wood_planks_02_ambient_occlusion_2k.png" id="4_wsxg1"]
+[ext_resource type="Texture2D" uid="uid://pao1ryrio8s" path="res://2d/interior_floor/wood_planks_02_height_2k.png" id="5_5yist"]
+[ext_resource type="ArrayMesh" uid="uid://bn5xohpccj30w" path="res://3d/props/foliage.obj" id="6_l0f8e"]
+[ext_resource type="Texture2D" uid="uid://dx7gho00ad82s" path="res://2d/interior_floor/wood_planks_02_normal_gl_2k.png" id="6_pewer"]
+[ext_resource type="ArrayMesh" uid="uid://c26sjcpuorkcr" path="res://3d/props/galery.obj" id="7_4rhf2"]
+[ext_resource type="Texture2D" uid="uid://4nfkqvs7aplg" path="res://2d/interior_floor/wood_planks_02_roughness_2k.png" id="7_6lxym"]
+[ext_resource type="Texture2D" uid="uid://cf00afd3r0tyr" path="res://2d/floor/ground_tiles_12_baseColor_2k.png" id="8_hb1or"]
+[ext_resource type="ArrayMesh" uid="uid://b4yv4i2hurhx7" path="res://3d/props/vertical_barrel.obj" id="8_soh2d"]
+[ext_resource type="ArrayMesh" uid="uid://8duvtgogre4i" path="res://3d/props/table_with_one_cloths.obj" id="9_m5lx4"]
+[ext_resource type="Texture2D" uid="uid://c1f08fra36mk8" path="res://2d/floor/ground_tiles_12_ambientOcclusion_2k.png" id="9_ymjl7"]
+[ext_resource type="Texture2D" uid="uid://dmt6qr6nf5dap" path="res://2d/floor/ground_tiles_12_metallic_2k.png" id="10_7frs5"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="10_wsxg1"]
+[ext_resource type="PackedScene" uid="uid://b3s3yu3drvuub" path="res://3d/3dLowPolyHouseTileSet/FishingLowPolyHouseModels.fbx" id="11_6nya7"]
+[ext_resource type="Texture2D" uid="uid://dcbhf8o4s2ba5" path="res://2d/floor/ground_tiles_12_normal_gl_2k.png" id="11_ubqaa"]
+[ext_resource type="Texture2D" uid="uid://dofqk1f5sha03" path="res://2d/floor/ground_tiles_12_roughness_2k.png" id="12_iqo3u"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_utqhk"]
+panorama = ExtResource("2_wv68y")
+
+[sub_resource type="Sky" id="Sky_4x4p7"]
+sky_material = SubResource("PanoramaSkyMaterial_utqhk")
+
+[sub_resource type="Environment" id="Environment_o18ml"]
+background_mode = 2
+sky = SubResource("Sky_4x4p7")
+sky_rotation = Vector3(0, -1.9809487, 0)
+glow_enabled = true
+glow_intensity = 6.49
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2s7pg"]
+render_priority = 1
+transparency = 1
+albedo_texture = ExtResource("3_m5lx4")
+roughness_texture = ExtResource("7_6lxym")
+normal_enabled = true
+normal_texture = ExtResource("6_pewer")
+ao_enabled = true
+ao_texture = ExtResource("4_wsxg1")
+heightmap_enabled = true
+heightmap_texture = ExtResource("5_5yist")
+uv1_scale = Vector3(5, 5, 5)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_p0so7"]
+material = SubResource("StandardMaterial3D_2s7pg")
+size = Vector3(3.2710118, 4.074, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eehgp"]
+albedo_texture = ExtResource("8_hb1or")
+metallic = 1.0
+metallic_texture = ExtResource("10_7frs5")
+roughness_texture = ExtResource("12_iqo3u")
+normal_enabled = true
+normal_scale = 1.5
+normal_texture = ExtResource("11_ubqaa")
+ao_enabled = true
+ao_texture = ExtResource("9_ymjl7")
+uv1_scale = Vector3(100, 100, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tt2tb"]
+size = Vector2(150, 150)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tt2tb"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0cus"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+stencil_mode = 3
+stencil_flags = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_03dd7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4x4p7"]
+size = Vector3(0.3263111, 2.5, 3.152)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gd040"]
+size = Vector3(3.5590348, 2.22, 2.928)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6nya7"]
+transparency = 1
+cull_mode = 1
+albedo_color = Color(1, 1, 1, 0)
+distance_fade_mode = 1
+distance_fade_min_distance = 1.0
+distance_fade_max_distance = 0.1
+stencil_mode = 3
+stencil_flags = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_eehgp"]
+size = Vector3(3.636026, 2.140623, 2.927507)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4x4p7"]
+render_priority = 2
+transparency = 1
+albedo_color = Color(0.4, 0.20392157, 0.007843138, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o18ml"]
+render_priority = 2
+transparency = 1
+albedo_color = Color(0.4, 0.20392157, 0.007843138, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+
+[node name="StencilScene" type="Node3D" unique_id=59936627]
+script = ExtResource("1_4x4p7")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=33974308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.890728, 1.16837, 3.7542229)
+aabb = AABB(-0.026379734, -1.1379129, -1.8057733, 0.05275947, 2.2758257, 3.1232653)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2058249982]
+environment = SubResource("Environment_o18ml")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=362422935]
+transform = Transform3D(-0.61508954, -0.7359129, 0.28301466, -0.37171113, 0.5872084, 0.719039, -0.6953388, 0.33707374, -0.63473284, 9.517347, 8.181656, -7.6588373)
+shadow_enabled = true
+
+[node name="InteriorFloor" type="MeshInstance3D" parent="." unique_id=1018156788]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -0.13233456, 0.050000135, 3.5049148)
+mesh = SubResource("BoxMesh_p0so7")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=710013503]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=344328250]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.132, 0, -0.261)
+material_override = SubResource("StandardMaterial3D_eehgp")
+lod_bias = 128.0
+mesh = SubResource("PlaneMesh_tt2tb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=293813197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_tt2tb")
+
+[node name="Portal" type="MeshInstance3D" parent="." unique_id=728314408]
+transform = Transform3D(-8.807084e-08, 1, 0, -1.4775835, -5.9604645e-08, 0, 0, 0, 1.7113265, 2, 1.1224661, 3.437779)
+material_override = SubResource("StandardMaterial3D_t0cus")
+mesh = SubResource("PlaneMesh_03dd7")
+
+[node name="Area3DEntrance" type="Area3D" parent="." unique_id=227455999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.25, 3.6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DEntrance" unique_id=1357743812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9177043, 0, -0.026428223)
+shape = SubResource("BoxShape3D_4x4p7")
+
+[node name="Area3DExit" type="Area3D" parent="." unique_id=1537814881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13, 1.11, 3.638)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DExit" unique_id=1093324673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0154826045, 0, 0)
+shape = SubResource("BoxShape3D_gd040")
+
+[node name="Portal2" type="MeshInstance3D" parent="." unique_id=940325286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10702357, 1.149354, 3.4454932)
+visible = false
+material_override = SubResource("StandardMaterial3D_6nya7")
+mesh = SubResource("BoxMesh_eehgp")
+
+[node name="Foliage" type="MeshInstance3D" parent="." unique_id=102674368]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.4770435, 1.448948, 2.2111237)
+mesh = ExtResource("6_l0f8e")
+
+[node name="Galery" type="MeshInstance3D" parent="." unique_id=1706201802]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.2440207, 0, 2.2852428)
+mesh = ExtResource("7_4rhf2")
+
+[node name="VerticalBarrel3" type="MeshInstance3D" parent="." unique_id=616574275]
+transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, 1.4436429, 1.647018, 2.1977606)
+mesh = ExtResource("8_soh2d")
+
+[node name="TableWithOneCloths" type="MeshInstance3D" parent="." unique_id=1851234640]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.525717, -0.03324321, 3.6433725)
+mesh = ExtResource("9_m5lx4")
+
+[node name="ProtoController" parent="." unique_id=1222393512 instance=ExtResource("10_wsxg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.004602, 0, 9.357625)
+
+[node name="FishingLowPolyHouseModels" parent="." unique_id=1264684819 instance=ExtResource("11_6nya7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1691923, 0.0034540892, -5.7028475)
+
+[node name="Cube_615" parent="FishingLowPolyHouseModels" index="0" unique_id=128161485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2299519, 1.8745718, 5.69712)
+
+[node name="WallLeft" type="CSGBox3D" parent="." unique_id=2096544910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13819516, 1.1692853, 5.08831)
+material_override = SubResource("StandardMaterial3D_4x4p7")
+size = Vector3(3.8355865, 2.3356056, 0.14974976)
+
+[node name="WallBack" type="CSGBox3D" parent="." unique_id=1390147104]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0418358, 1.912682, 3.4817352)
+material_override = SubResource("StandardMaterial3D_o18ml")
+size = Vector3(3.2380447, 3.839939, 0.24584961)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=151467477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10541868, 1.3348268, 3.659883)
+light_color = Color(1, 0.75668746, 0, 1)
+shadow_enabled = true
+omni_range = 0.835956
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="." unique_id=902079379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3430387, 1.7654496, 2.7203171)
+light_color = Color(1, 0.75668746, 0, 1)
+shadow_enabled = true
+omni_range = 0.659
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="." unique_id=916779884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0487906, 1.3348268, 3.1420553)
+visible = false
+light_color = Color(1, 0.75668746, 0, 1)
+shadow_enabled = true
+omni_range = 0.835956
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=322237767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1662402, 1.3337778, 3.126327)
+light_color = Color(1, 0.75668746, 0, 1)
+shadow_enabled = true
+omni_range = 1.1617477
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1547532912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7510557, 1.3337778, 3.126327)
+light_color = Color(1, 0.75668746, 0, 1)
+shadow_enabled = true
+omni_range = 1.1617477
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=909609051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2313286, 1.2142365, 3.1703074)
+light_color = Color(1, 0.75668746, 0, 1)
+shadow_enabled = true
+omni_range = 1.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1856370414]
+transform = Transform3D(1, 0, 0, 0, -0.9422076, 0.33502966, 0, -0.33502966, -0.9422076, 0.78710115, 1.9547431, 3.1703074)
+visible = false
+light_color = Color(1, 0.75686276, 0, 1)
+spot_range = 2.722
+spot_angle = 35.51
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1687133434]
+transform = Transform3D(1, 0, 0, 0, -0.9422076, 0.33502966, 0, -0.33502966, -0.9422076, -1.0876244, 1.9547431, 3.1703074)
+visible = false
+light_color = Color(1, 0.75686276, 0, 1)
+spot_range = 3.162
+spot_angle = 40.0
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[connection signal="body_entered" from="Area3DEntrance" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3DEntrance" to="." method="_on_area_3d_entrance_body_exited"]
+[connection signal="body_exited" from="Area3DExit" to="." method="_on_area_3d_exit_body_exited"]
+
+[editable path="FishingLowPolyHouseModels"]

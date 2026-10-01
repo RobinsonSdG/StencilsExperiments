@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cyv4a8usigyan"]
+
+[resource]
+resource_name = "Material.391"
+render_priority = 3
+transparency = 1
+albedo_color = Color(0.486897, 0.236624, 0.154443, 1)
+metallic = 0.5
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2

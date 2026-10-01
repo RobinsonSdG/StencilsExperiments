@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://biuejh0ecants"]
+
+[resource]
+resource_name = "Material.389"
+render_priority = 3
+transparency = 1
+albedo_color = Color(0.135714, 0.086008, 0.054683, 1)
+metallic = 0.5
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
