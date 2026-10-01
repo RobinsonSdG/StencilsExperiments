@@ -115,12 +115,18 @@ stencil_mode = 3
 stencil_flags = 1
 stencil_compare = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_03dd7"]
+size = Vector3(3.5850677, 2.226822, 0.21411133)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m5lx4"]
+size = Vector3(2.9811325, 2.226822, 0.21411133)
+
 [node name="StencilScene" type="Node3D" unique_id=59936627]
 script = ExtResource("1_4x4p7")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=33974308]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.890728, 1.16837, 3.7542229)
-aabb = AABB(-0.026379734, -1.1379129, -1.8057733, 0.05275947, 2.2758257, 3.1232653)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38547945, 1.7468696, 3.8309236)
+aabb = AABB(-1.7933791, -1.7468696, -1.5786383, 4.1043363, 2.6001844, 2.6689954)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2058249982]
 environment = SubResource("Environment_o18ml")
@@ -146,15 +152,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_tt2tb")
 
 [node name="Portal" type="MeshInstance3D" parent="." unique_id=728314408]
-transform = Transform3D(-8.807084e-08, 1, 0, -1.4775835, -5.9604645e-08, 0, 0, 0, 1.7113265, 2, 1.1224661, 3.437779)
+transform = Transform3D(-8.807084e-08, 1, 0, -1.4775835, -5.9604645e-08, 0, 0, 0, 1.7113265, 1.9396982, 1.1224661, 3.437779)
 material_override = SubResource("StandardMaterial3D_t0cus")
 mesh = SubResource("PlaneMesh_03dd7")
 
 [node name="Area3DEntrance" type="Area3D" parent="." unique_id=227455999]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.25, 3.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1471677, 1.25, 3.6)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DEntrance" unique_id=1357743812]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9177043, 0, -0.026428223)
 shape = SubResource("BoxShape3D_4x4p7")
 
 [node name="Area3DExit" type="Area3D" parent="." unique_id=1537814881]
@@ -256,10 +261,26 @@ light_color = Color(1, 0.75686276, 0, 1)
 spot_range = 3.162
 spot_angle = 40.0
 
+[node name="Exit1" type="Area3D" parent="." unique_id=1514051032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.006714)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit1" unique_id=2130887708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11420441, 1.1185532, -1.71521)
+shape = SubResource("BoxShape3D_03dd7")
+
+[node name="Exit2" type="Area3D" parent="." unique_id=372637380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.006714)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit2" unique_id=1054337503]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.2961845, 1.1185532, -3.577042)
+shape = SubResource("BoxShape3D_m5lx4")
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="body_entered" from="Area3DEntrance" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3DEntrance" to="." method="_on_area_3d_entrance_body_exited"]
 [connection signal="body_exited" from="Area3DExit" to="." method="_on_area_3d_exit_body_exited"]
+[connection signal="body_entered" from="Exit1" to="." method="_on_exit_1_body_entered"]
+[connection signal="body_entered" from="Exit2" to="." method="_on_exit_2_body_entered"]
 
 [editable path="FishingLowPolyHouseModels"]
